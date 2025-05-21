@@ -1,0 +1,105 @@
+<div class="settings-container">
+  <h1>Settings</h1>
+
+  <div class="settings-grid">
+    <!-- Notifications Section -->
+    <div class="settings-section">
+      <h2>Notifications</h2>
+      <div class="settings-group">
+        <div class="setting-item">
+          <label>
+            <input type="checkbox" [(ngModel)]="settings.notifications.email">
+            Email Notifications
+          </label>
+          <p class="setting-description">Receive notifications via email</p>
+        </div>
+
+        <div class="setting-item">
+          <label>
+            <input type="checkbox" [(ngModel)]="settings.notifications.push">
+            Push Notifications
+          </label>
+          <p class="setting-description">Receive push notifications in browser</p>
+        </div>
+
+        <div class="setting-item">
+          <label>
+            <input type="checkbox" [(ngModel)]="settings.notifications.marketing">
+            Marketing Emails
+          </label>
+          <p class="setting-description">Receive marketing and promotional emails</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Privacy Section -->
+    <div class="settings-section">
+      <h2>Privacy</h2>
+      <div class="settings-group">
+        <div class="setting-item">
+          <label>Profile Visibility</label>
+          <select [(ngModel)]="settings.privacy.profileVisibility">
+            <option value="public">Public</option>
+            <option value="private">Private</option>
+            <option value="friends">Friends Only</option>
+          </select>
+        </div>
+
+        <div class="setting-item">
+          <label>
+            <input type="checkbox" [(ngModel)]="settings.privacy.showEmail">
+            Show Email Address
+          </label>
+          <p class="setting-description">Display your email address on your profile</p>
+        </div>
+
+        <div class="setting-item">
+          <label>
+            <input type="checkbox" [(ngModel)]="settings.privacy.showActivity">
+            Show Activity Status
+          </label>
+          <p class="setting-description">Display when you were last active</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Preferences Section -->
+    <div class="settings-section">
+      <h2>Preferences</h2>
+      <div class="settings-group">
+        <div class="setting-item">
+          <label>Language</label>
+          <select [(ngModel)]="settings.preferences.language">
+            <option *ngFor="let lang of languages" [value]="lang.code">
+              {{ lang.name }}
+            </option>
+          </select>
+        </div>
+
+        <div class="setting-item">
+          <label>Theme</label>
+          <select [(ngModel)]="settings.preferences.theme">
+            <option *ngFor="let theme of themes" [value]="theme.code">
+              {{ theme.name }}
+            </option>
+          </select>
+        </div>
+
+        <div class="setting-item">
+          <label>Timezone</label>
+          <select [(ngModel)]="settings.preferences.timezone">
+            <option *ngFor="let tz of timezones" [value]="tz.code">
+              {{ tz.name }}
+            </option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="settings-actions">
+    <button class="btn-save" (click)="saveSettings()">
+      <i class="fas fa-save"></i> Save Changes
+    </button>
+  </div>
+</div> 
